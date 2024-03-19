@@ -1,0 +1,42 @@
+{% load static %}
+{% load blog_tags %}
+<! DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="icon" type="image/x-icon" {% block favicon %}href="{% static '285647_globe_icon.png' %}"{% endblock %}>
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="sidebar">
+            <h2>Newsexpress</h2>
+            <p>
+                Experience the power of blogging!
+                Josh has wriitten {% total_posts %} posts so far.
+            </p>
+            <p>
+                <a href="{% url 'blog:post_feed' %}">Subscribe to the RSS feed</a>
+            </p>
+            <p>
+                <a href="{% url 'django.contrib.sitemaps.views.sitemaps' %}">View the sitemap for this site</a>
+            </p>
+            <h3>Latest posts</h3>
+            {% show_latest_posts 3 %}
+            <h3>Most commented posts</h3>
+            {% get_most_commented_posts as most_commented_posts %}
+            <ul>
+                {% for post in most_commented_posts %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
