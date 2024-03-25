@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-uiws^_xrys!5i@(5ku2rh*hdhg38*6v1*%7w6vr3&reibe5^=1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['newsexpress.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -112,6 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.linkedin.LinkedinOAuth2',
 ]
 
 
@@ -164,3 +170,19 @@ LOGOUT_URL = 'logout'
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1579054646224588'
+
+SOCIAL_AUTH_FACEBOOK_SECRET = '98144e294e5b6dbba46c87ae91914337'
+
+SOCIAL_AUTH_TWITTER_KEY = 'yYqW6OKbGnswdYZNLpp2Zzt9I'
+
+SOCIAL_AUTH_TWITTER_SECRET = 'ofGgr5jONBvbMqDVj62yQHmxYlVx5GFOkRFQTufklhYOzepWYw'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '418075400136-5cbd2d5ff0klbgld1ai0df8l8rttgj1d.apps.googleusercontent.com'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '78z8krcs3vz15y'
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'dMEysOCblxO68xQ0'
