@@ -20,6 +20,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.conf import settings
 from django.conf.urls.static import static
+from blog.views import post_list
 
 sitemaps = {
     'posts': PostSitemap,
@@ -30,7 +31,8 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemaps')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemaps'),
+    path('', post_list, name='home'),
 ]
 
 if settings.DEBUG:

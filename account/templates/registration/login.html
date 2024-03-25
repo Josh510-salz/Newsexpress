@@ -39,9 +39,9 @@
         <li class="google">
             <a href="{% url "social:begin" "google-oauth2" %}">Sign in with Google</a>
         </li>
-        <li class="facebook">
+        {% comment %}<li class="facebook">
             <a href="{% url "social:begin" "linkedin-oauth2" %}">Sign in with LinkedIn</a>
-        </li>
+        </li>{% endcomment %}
     </ul>
 </div>
 {% endblock %}
