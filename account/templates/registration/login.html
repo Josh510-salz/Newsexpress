@@ -31,13 +31,13 @@
 <div class="social">
     <ul>
         <li class="facebook">
-            <a href="{% url "social:begin" "facebook" %}">Sign in with Facebook</a>
+            <a href="{% url "social:begin" "facebook" %}"><img src="{% static 'icons8-facebook-48.png' %}"></a>
         </li>
         <li class="twitter">
-            <a href="{% url "social:begin" "twitter" %}">Sign in with X</a>
+            <a href="{% url "social:begin" "twitter" %}"><img src="{% static 'icons8-twitterx-50.png' %}" width="48px" height="48px"></a>
         </li>
         <li class="google">
-            <a href="{% url "social:begin" "google-oauth2" %}">Sign in with Google</a>
+            <a href="{% url "social:begin" "google-oauth2" %}"><img src="{% static 'icon-google.png' %}" width="48px" height="48px"></a>
         </li>
         {% comment %}<li class="facebook">
             <a href="{% url "social:begin" "linkedin-oauth2" %}">Sign in with LinkedIn</a>
