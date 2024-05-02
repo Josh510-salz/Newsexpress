@@ -7,7 +7,7 @@
 
 {% block content %}
 {% if user_form.is_valid and profile_form.is_valid %}
-<h2>You have successfully edited your profile. You can now go back to <a href="{% url 'dashboard' %}">your dashboard</a></h2>
+<p>You have successfully edited your profile. You can now go back to <a href="{% url 'dashboard' %}">your dashboard</a></p>
 {% else %}
 <h1>Edit your account</h1>
 <p>You can edit your account using the follwing form:</p>

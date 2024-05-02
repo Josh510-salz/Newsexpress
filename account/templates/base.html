@@ -5,6 +5,7 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href={% block favicon %}"{% static '7422495_nasa_space_shuttle_universe_explore_icon.png' %}"{% endblock %}>
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     </head>
     <body>
         <div id="header">
@@ -24,7 +25,12 @@
             {% endif %}
             <span class="user">
                 {% if request.user.is_authenticated %}
-                Hello {{ request.user.first_name|default:request.user.username }}
+                {% if request.user.profile.photo %}
+                <img src="{{ request.user.profile.photo.url }}" width="20px" height="20px" alt="Profile Picture">
+                {% else %}
+                <img src="{% static 'download (1).jpg' %}" width="20px" height="20px" alt="Profile Picture">
+                {% endif %}
+                Hello {{ request.user.last_name|default:request.user.username }}
                 <a href="{% url 'logout' %}">Logout</a>
                 {% else %}
                 <a href="{% url 'login' %}">Log-in</a>
@@ -46,4 +52,9 @@
             {% endblock %}
         </div>
     </body>
+<nav class="navbar fixed-bottom" id="header" style="border-radius: 10px; padding-top: 2px; padding-bottom: 2px;">
+        <span class="navbar-text text-center" style="width: 100%">
+            Copyright &copy; 2024 formAT! Inc. All Rights Reserved.
+        </span>
+    </nav>
 </html>
