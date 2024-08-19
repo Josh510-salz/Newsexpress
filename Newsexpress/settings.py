@@ -87,8 +87,8 @@ WSGI_APPLICATION = 'Newsexpress.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'blog',
+        'NAME': 'newsexpress_blog',
+        'USER': 'josh510-salz',
         'PASSWORD': 'salami510',
     }
 }
